@@ -1,0 +1,128 @@
+<div class="form-container mat-elevation-z5">
+  <h1>Sign Up a New User!</h1>
+  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" />
+      <mat-error *ngIf="name?.errors?.['required']">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Email address" formControlName="email" />
+      <mat-error *ngIf="email?.errors?.['required']">
+        Email address is required
+      </mat-error>
+      <mat-error *ngIf="email?.errors?.['email']">
+        Please enter a valid email address
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <mat-error *ngIf="password?.errors?.['required']">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="password"
+        placeholder="Confirm Password"
+        formControlName="confirmPassword"
+      />
+      <mat-error *ngIf="confirmPassword?.errors?.['required']">
+        Confirm Password is required
+      </mat-error>
+    </mat-form-field>
+    <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+      Passwords should match
+    </mat-error>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Phone Number"
+        formControlName="phonenumber"
+      />
+      <mat-error *ngIf="phonenumber?.errors?.['required']">
+        Phone Number is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Address"
+        formControlName="address"
+      />
+      <mat-error *ngIf="address?.errors?.['required']">
+        Address is required
+      </mat-error>
+    </mat-form-field>
+
+    <!-- <button formControlName="state" type="button" mat-button [matMenuTriggerFor]="states">
+      <mat-label>States</mat-label>
+    </button>
+    
+    <mat-menu #states="matMenu">
+      <button mat-menu-item>Andra Pradesh</button>
+      <button mat-menu-item>Assam</button>
+      <button mat-menu-item>Karnataka</button>
+      <button mat-menu-item>Kerela</button>
+      <button mat-menu-item>Uttar Pradesh</button>
+      <button mat-menu-item>Maharastra</button>
+      <button mat-menu-item>West Bengal</button>
+    </mat-menu> -->
+    <!-- <mat-error *ngIf="state?.errors?.['required']">
+      State is required
+    </mat-error> -->
+    
+    <select formControlName="state" name="State" >
+        <option selected="selected" value="one">Option 1</option>
+        <option value="two">Option 2</option>
+        <option value="three">Option 3</option>
+        </select>
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="City" formControlName="city" />
+      <mat-error *ngIf="city?.errors?.['required']">
+        City is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Pin Code"
+        formControlName="pincode"
+      />
+      <mat-error *ngIf="pincode?.errors?.['required']">
+        Pin Code is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-radio-group aria-label="Gender" formControlName="gender">
+      <mat-label>Gender</mat-label>
+      <mat-radio-button value="1">Option 1</mat-radio-button>
+      <mat-radio-button value="2">Option 2</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field>
+      <input matInput type="date" placeholder="DOB" formControlName="dob" />
+    </mat-form-field>
+
+    <div class="center margin-top">
+      <button type="submit" mat-raised-button color="primary">Sign Up!</button>
+    </div>
+  </form>
+</div>
